@@ -14,11 +14,11 @@ def trader_du_dimanche(tabl_ord, i, share_names)
 	best_buy = nil;
 	best_sell = nil;
 
-	#établir le jour où l'on peut acheter
+	#jour pour acheter
 	(0..(tabl_ord.length - 2)).each do |date_buy|
-		#établir le jour où l'on peut vendre
+		#jour pour vendre
 		((date_buy + 1).. tabl_ord.length - 1).each do |date_sell|
-			#regarder le profit entre les 2 jours
+			#profit
 			price_difference = tabl_ord[date_sell] - tabl_ord[date_buy];
 
 			if price_difference > maxprofit
