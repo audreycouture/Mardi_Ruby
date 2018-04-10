@@ -1,24 +1,25 @@
-def chiffre_de_cesar(mot, chiffre)
-  result = ""
-  c = 0
-  m = mot.length - 1
-  mot.downcase!
-  for c in (0...m)
+def chiffre_de_cesar(string, n)
+code = ""
+c = 0
+l = string.length - 1
+string.downcase!
+for c in (0...l)
 
-    case
-    when mot[c] != " " && ascii = mot[c].ord + chiffre < 122 # && mot[c].include('a'...'z') == true
-      then ascii = mot[c].ord + chiffre
-      result += ascii.chr
+	case 
+	when string[c] != " " && ascii = string[c].ord + n < 122 
+		then ascii = string[c].ord + n
+			code += ascii.chr 
+	 
+	when string[c] != " "  && ascii = string[c].ord + n > 122
+	  then ascii = string[c].ord + (n - 26)
+		code += ascii.chr 
+	
+	else
+	code += string[c]
 
-    when mot[c] != " " && ascii = mot[c].ord + chiffre > 122
-      then ascii = mot[c].ord + (chiffre - 26)
-    result += ascii.chr
-
-  else
-    result += " "
-  end
+	end
 end
-    puts result.capitalize!
+puts code.capitalize!
 
 end
 
